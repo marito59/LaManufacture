@@ -1,0 +1,40 @@
+/*
+Theme Name: Visual Composer Starter Child
+Theme URI: https://blog.visualcomposer.io/visual-composer-starter-theme/
+Author: CMA
+Author URI: http://github.com/maritore59
+Description: Visual Composer Starter Child theme
+Template: visual-composer-starter
+Version: 1.0
+Text Domain: cma-vc-starter
+*/
+
+.display-posts-listing>.listing-item {
+    padding-top: 20px;
+    clear: both;
+}
+
+.topbutton {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    z-index: 1;
+    background-image: url("/wp-content/uploads/2017/11/back-to-top.png");
+    background-repeat: no-repeat;
+    display: none;
+}
+
+
+/* styling for menu icons */
+
+.main-navigation ul li {
+    width: 100%;
+}
+
+.fa::before {
+    float: left;
+    margin-top: 8px;
+    width: 30px;
+}
