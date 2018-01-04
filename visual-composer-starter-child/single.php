@@ -22,9 +22,9 @@ while ( have_posts() ) :
 							<div class="<?php echo esc_attr( vct_get_maincontent_block_class() ); ?>">
 								<div class="col-md-12">
 									<?php
-									// Modified by CMA : inversion des 2 lignes
+									// Modified by CMA : suppression des metat tags
+									// visualcomposerstarter_single_meta();
 									get_template_part( 'template-parts/content', 'single' );
-									visualcomposerstarter_single_meta();
 									// End Modified by CMA
 									
 									// Modified by CMA : suppression de la navigation (suppression de tout le bloc)

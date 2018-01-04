@@ -54,7 +54,7 @@
 			__( 'Read More', 'textdomain' )
 		);
 	}
-	add_filter( 'excerpt_more', 'my_custom_excerpt_more' );
+	//add_filter( 'excerpt_more', 'my_custom_excerpt_more' );
 
 	/*
 	 * Function pour permettre de remonter en haut de la page (back to top)
@@ -109,6 +109,9 @@
 			<?php
 		}
 	endif;
+
+	// Empécher la publication dans Facebook et Twitter par défaut
+	add_filter( 'publicize_checkbox_default', '__return_false' );
 
 	/* 
 	 * Mofifie l'affichage de la Featured image en fonction des paramètres spécifiques de l'article définis via ACF
