@@ -38,7 +38,7 @@
 	 * Définition d'une longueur personnalisée de l'extrait
 	 */
 	function my_custom_excerpt_length( $length ) {
-		return 100; // set the number to the amount of words you want to appear in the excerpt
+		return 150; // set the number to the amount of words you want to appear in the excerpt
 	}
 	add_filter( 'excerpt_length', 'my_custom_excerpt_length');
 
@@ -209,4 +209,45 @@
 			} // End if().
 		}
 	endif;
+
+	function cma_manid_widgets_init() {
+		register_sidebar( array(
+			'name'          => 'Widget area 1',
+			'id'            => 'widget_1',
+			'before_widget' => '<div>',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="rounded">',
+			'after_title'   => '</h2>',
+		) );
+	}
+	add_action( 'widgets_init', 'cma_manid_widgets_init' );
+
+	/**
+	 * Redirect event category requests to list view.
+	 *
+	 * @param $query
+	 */
+	function cma_manid_use_list_view_for_categories( $query ) {
+		// Disregard anything except a main archive query
+		if ( is_admin() || ! $query->is_main_query() || ! is_archive() ) return;
+
+		// We only want to catch *event* category requests being issued
+		// against something other than list view
+		if ( ! $query->get( 'tribe_events_cat' ) ) return;
+		if ( tribe_is_list_view() ) return;
+
+		// Get the term object
+		$term = get_term_by( 'slug', $query->get( 'tribe_events_cat' ), Tribe__Events__Main::TAXONOMY );
+
+		// If it's invalid don't go any further
+		if ( ! $term ) return;
+
+		// Get the list-view taxonomy link and redirect to it
+		header( 'Location: ' . tribe_get_listview_link( $term->term_id ) );
+		exit();
+	}
+
+	// Use list view for category requests by hooking into pre_get_posts for event queries
+	add_action( 'tribe_events_pre_get_posts', 'cma_manid_use_list_view_for_categories' );
+
 ?>
