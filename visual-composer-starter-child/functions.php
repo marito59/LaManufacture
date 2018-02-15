@@ -73,7 +73,7 @@
 	 * Ajout du bouton back to top 
 	 * Tout est défini dans le CSS
 	 */
-	add_action( 'vct_hook_before_footer', my_backtotop_tag_hook);
+	add_action( 'visualcomposerstarter_hook_before_footer', my_backtotop_tag_hook);
 
 	function my_backtotop_tag_hook () {
 		echo "<a href=\"#\" class=\"topbutton\"></a>";
@@ -119,27 +119,15 @@
 	 *   - Supress Featured Image : supprime l'affichage de la Featured image dans la page (pas dans la liste)
 	 *   - Extra Featured Image : utilise une image différente de la Featured image dans la page (pas dans la liste)
 	 */
+
 	if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
 		/**
 		 * Header featured content.
 		 */
 		function visualcomposerstarter_header_featured_content() {
-			if ( 'video' === get_post_format() ) {
-				$post = get_post( get_the_ID() );
-				remove_filter( 'the_content', 'wpautop' );
+			if ( 'gallery' === get_post_format() ) {
 				?>
-				<div class="<?php echo esc_attr( vct_get_header_image_container_class() ); ?>">
-					<div class="row">
-						<div class="video-wrapper">
-							<?php echo esc_html( apply_filters( 'the_content', $post->post_content ) ); ?>
-						</div>
-					</div>
-				</div>
-				<?php
-				add_filter( 'the_content', 'wpautop' );
-			} elseif ( 'gallery' === get_post_format() ) {
-				?>
-				<div class="<?php echo esc_attr( vct_get_header_image_container_class() ); ?>">
+				<div class="<?php echo esc_attr( visualcomposerstarter_get_header_image_container_class() ); ?>">
 					<div class="row">
 						<div class="gallery-slider">
 							<?php
@@ -150,9 +138,9 @@
 								<div class="gallery-item">
 									<div class="fade-in-img">
 										<div class="fade-in-img-inner-wrap">
-											<img src="<?php echo esc_url( $src );?>" data-src="<?php echo esc_url( $src );?>" alt="">
+											<img src="<?php echo esc_url( $src );?>" data-src="<?php echo esc_url( $src );?>">
 											<noscript>
-												<img src="<?php echo esc_url( $src );?>" alt="">
+												<img src="<?php echo esc_url( $src );?>">
 											</noscript>
 										</div>
 									</div><!--.fade-in-img-->
@@ -170,39 +158,39 @@
 			} else {
 				// Modif CMA : supprimer l'affichage de la featured image
 				if ( !get_field('suppress_featured_image') ) {
-				// end modif CMA
-				?>
-				<div class="<?php echo esc_attr( vct_get_header_image_container_class() ); ?>">
-					<div class="row">
-						<div class="fade-in-img">
-							<div class="fade-in-img-inner-wrap">
-								<?php
-								// Modified by CMA
-								// affiche une autre featured image si elle existe
-								$extra_featured_image = get_field ('extra_featured_image');
-								if ( $extra_featured_image ) {
-									$size = "full";
-									echo wp_get_attachment_image( $extra_featured_image, $size );
-								} else {
-								// end modif CMA + parenthèse à la fin
-									if ( 'full_width' === get_theme_mod( 'vct_overall_site_featured_image_width', 'full_width' ) ) {
-										the_post_thumbnail( 'vct-featured-single-image-full', array(
-												'data-src' => get_the_post_thumbnail_url( null, 'vct-featured-single-image-full' ),
-											) );
+					// end modif CMA
+					?>
+					<div class="<?php echo esc_attr( visualcomposerstarter_get_header_image_container_class() ); ?>">
+						<div class="row">
+							<div class="fade-in-img">
+								<div class="fade-in-img-inner-wrap">
+									<?php
+									// Modified by CMA
+									// affiche une autre featured image si elle existe
+									$extra_featured_image = get_field ('extra_featured_image');
+									if ( $extra_featured_image ) {
+										$size = "full";
+										echo wp_get_attachment_image( $extra_featured_image, $size );
 									} else {
-										the_post_thumbnail( 'vct-featured-single-image-boxed', array(
-												'data-src' => get_the_post_thumbnail_url( null, 'vct-featured-single-image-boxed' ),
-											) );
+									// end modif CMA + parenthèse à la fin
+										if ( 'full_width' === get_theme_mod( 'vct_overall_site_featured_image_width', 'full_width' ) ) {
+											the_post_thumbnail( 'vct-featured-single-image-full', array(
+													'data-src' => get_the_post_thumbnail_url( null, 'vct-featured-single-image-full' ),
+												) );
+										} else {
+											the_post_thumbnail( 'vct-featured-single-image-boxed', array(
+													'data-src' => get_the_post_thumbnail_url( null, 'vct-featured-single-image-boxed' ),
+												) );
+										}
 									}
-								}
-								?>
-								<noscript>
-									<?php the_post_thumbnail(); ?>
-								</noscript>
+									?>
+									<noscript>
+										<?php the_post_thumbnail(); ?>
+									</noscript>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 	
 				<?php
 				}
