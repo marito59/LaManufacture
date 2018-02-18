@@ -1,0 +1,1105 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-07 10:28+0200\n"
+"PO-Revision-Date: 2017-03-20 21:48+0200\n"
+"Last-Translator: WPBakery <hello@wpbakery.com>\n"
+"Language-Team: WPBakery <hello@wpbakery.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-KeywordsList: esc_html__;esc_html_e;esc_attr__;esc_attr_e;"
+"esc_html_x;_x\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:18
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: archive.php:41 index.php:34 search.php:40
+msgid "Post navigation"
+msgstr ""
+
+#: archive.php:47 index.php:40 search.php:46
+msgid "Page"
+msgstr ""
+
+#: comments.php:21
+msgid "No Comment"
+msgstr ""
+
+#: comments.php:21
+msgid "One Comment"
+msgstr ""
+
+#: comments.php:21
+msgid "% Comment"
+msgstr ""
+
+#: comments.php:23
+msgid "Join the discussion and tell us your opinion."
+msgstr ""
+
+#: comments.php:31
+msgid "Reply"
+msgstr ""
+
+#: comments.php:46
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:54
+msgid "Leave A Comment"
+msgstr ""
+
+#: comments.php:60
+msgid "Share Your Thoughts"
+msgstr ""
+
+#: footer.php:102
+#, php-format
+msgid "Copyright &copy; %1$s %2$s. All Rights Reserved."
+msgstr ""
+
+#: footer.php:105
+#, php-format
+msgid "Proudly powered by %1$sVisual Composer%3$s and %2$sWordPress%3$s"
+msgstr ""
+
+#: functions.php:85
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:86
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:101
+msgid "Page Options"
+msgstr ""
+
+#: functions.php:105 functions.php:155
+msgid "Sidebar Position"
+msgstr ""
+
+#: functions.php:108 functions.php:158
+msgid "Select specific sidebar position."
+msgstr ""
+
+#: functions.php:110 functions.php:160
+msgid "None"
+msgstr ""
+
+#: functions.php:111 functions.php:161
+#: inc/customizer/class-visualcomposerstarter-customizer.php:327
+#: inc/customizer/class-visualcomposerstarter-customizer.php:345
+#: inc/customizer/class-visualcomposerstarter-customizer.php:363
+msgid "Left"
+msgstr ""
+
+#: functions.php:112 functions.php:162
+#: inc/customizer/class-visualcomposerstarter-customizer.php:328
+#: inc/customizer/class-visualcomposerstarter-customizer.php:346
+#: inc/customizer/class-visualcomposerstarter-customizer.php:364
+msgid "Right"
+msgstr ""
+
+#: functions.php:120
+msgid "Hide Page Title"
+msgstr ""
+
+#: functions.php:124 functions.php:174 functions.php:206 functions.php:218
+#: functions.php:232 functions.php:244
+msgid "Yes"
+msgstr ""
+
+#: functions.php:151
+msgid "Post Options"
+msgstr ""
+
+#: functions.php:170
+msgid "Hide Post Title"
+msgstr ""
+
+#: functions.php:514
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:516
+msgid "Add widgets here to appear in your sidebar."
+msgstr ""
+
+#: functions.php:526
+msgid "Menu Area"
+msgstr ""
+
+#: functions.php:528
+msgid "Add widgets here to appear in menu area."
+msgstr ""
+
+#: functions.php:542
+msgid "Footer Widget Column 1"
+msgstr ""
+
+#: functions.php:544 functions.php:560 functions.php:576 functions.php:592
+msgid "Add widgets here to appear in your footer."
+msgstr ""
+
+#: functions.php:558
+msgid "Footer Widget Column 2"
+msgstr ""
+
+#: functions.php:574
+msgid "Footer Widget Column 3"
+msgstr ""
+
+#: functions.php:590
+msgid "Footer Widget Column 4"
+msgstr ""
+
+#: header.php:43
+msgid "Toggle navigation"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:62
+msgid "Theme Options"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:67
+msgid "Header"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:72
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:80
+msgid "Fonts & Style"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:86
+msgid "Scripts"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:236
+msgid "Disable Theme Header"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:248
+msgid "Disable Theme Footer"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:260
+msgid "Featured Image"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:261
+msgid "Show featured image for posts and pages."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:274
+msgid "Featured Image Width"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:278
+msgid "Full width (default)"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:279
+msgid "Boxed"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:291
+msgid "Featured Image Height"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:295
+msgid "Auto (default)"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:296
+msgid "Full height"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:297
+msgid "Custom"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:308
+msgid "Custom Height"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:309
+msgid "Please specify featured image height in pixels (ex. 400px)."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:322
+msgid "Page Sidebar Position"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:326
+#: inc/customizer/class-visualcomposerstarter-customizer.php:344
+#: inc/customizer/class-visualcomposerstarter-customizer.php:362
+#: inc/customizer/class-visualcomposerstarter-customizer.php:440
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1238
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1409
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1571
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1740
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1908
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2080
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2269
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2471
+msgid "None (default)"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:340
+msgid "Post Sidebar Position"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:358
+msgid "Archive/Category Sidebar Position"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:371
+msgid "Site Background"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:380
+msgid "Content Background"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:392
+msgid "Comments Background"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:435
+msgid "Sidebar Customization"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:436
+msgid "Default content area of theme is defined as Boxed and No Sidebar."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:441
+msgid "Position left"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:442
+msgid "Position right"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:454
+msgid "Content Area Size Customization"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:455
+msgid "Default content area size is defined as Boxed and Full width."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:459
+#: inc/customizer/class-visualcomposerstarter-customizer.php:584
+msgid "Boxed (default)"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:460
+#: inc/customizer/class-visualcomposerstarter-customizer.php:586
+msgid "Full width"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:471
+msgid "Content background color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:472
+msgid "Choose content background color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:483
+msgid "Comments background color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:484
+msgid "Choose comments background color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:563
+msgid "Header Style"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:567
+msgid "Top (default)"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:568
+msgid "Sandwich"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:580
+msgid "Header Width"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:585
+msgid "Full width boxed"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:597
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2349
+msgid "Background Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:598
+msgid "Define header and submenu background color."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:610
+msgid "Submenu Background Hover Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:622
+#: inc/customizer/class-visualcomposerstarter-customizer.php:770
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2361
+msgid "Text Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:634
+msgid "Active Text Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:646
+msgid "Header Padding"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:659
+msgid "Reserve Space For Header"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:660
+msgid "By default header will be placed on the top of featured image."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:673
+msgid "Sticky Header"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:674
+msgid "If set to 'On' header will stay fixed on the top when scrolling."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:687
+msgid "Sandwich Style"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:688
+msgid "Define sandwich background and control style."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:692
+msgid "Dark (default)"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:693
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1184
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1351
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1514
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1683
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1851
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2019
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2212
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2414
+msgid "Light"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:704
+msgid "Sandwich Icon Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:758
+msgid "Footer Background Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:782
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1158
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1322
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1488
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1654
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1822
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1990
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2182
+msgid "Active Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:795
+msgid "Widget Area"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:796
+msgid "Theme footer allows inserting widget area at the top of the footer."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:808
+msgid "Number of Columns"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:809
+msgid "Widget area can be divided into up to four columns."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:814
+msgid "One"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:815
+msgid "Two"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:816
+msgid "Three"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:817
+msgid "Four"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:829
+msgid "Social Icons"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:830
+msgid "Add url to your social network profiles."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:893
+msgid "Facebook"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:905
+msgid "Twitter"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:917
+msgid "LinkedIn"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:929
+msgid "Instagram"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:941
+msgid "Pinterest"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:953
+msgid "YouTube"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:965
+msgid "Vimeo"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:977
+msgid "Flickr"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:989
+msgid "Github"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1001
+msgid "Email"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1020
+msgid "H1"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1026
+msgid "H2"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1032
+msgid "H3"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1038
+msgid "H4"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1044
+msgid "H5"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1050
+msgid "H6"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1056
+msgid "Body"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1062
+msgid "Buttons"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1147
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1310
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1477
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1642
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1810
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1978
+msgid "Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1165
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1330
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1495
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1662
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1830
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1998
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2191
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2393
+msgid "Font-family"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1172
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1338
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1502
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1670
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1838
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2006
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2199
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2401
+msgid "Google Fonts Subsets"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1179
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1346
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1509
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1678
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1846
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2014
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2207
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2409
+msgid "Font Weight"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1185
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1196
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1352
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1364
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1515
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1526
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1684
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1695
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1852
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1863
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2020
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2032
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2213
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2224
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2415
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2426
+msgid "Normal (default)"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1186
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1353
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1516
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1685
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1853
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2021
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2214
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2416
+msgid "Semi-Bold"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1187
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1354
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1517
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1686
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1854
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2022
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2215
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2417
+msgid "Bold"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1191
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1359
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1521
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1690
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1858
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2027
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2219
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2421
+msgid "Font Style"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1197
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1365
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1527
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1696
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1864
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2033
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2225
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2427
+msgid "Italic"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1198
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1366
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1528
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1697
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1865
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2034
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2226
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2428
+msgid "Oblique"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1199
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1367
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1529
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1698
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1866
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2035
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2227
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2429
+msgid "Inherit"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1203
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1372
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1534
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1703
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1871
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2040
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2232
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2434
+msgid "Size"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1209
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1379
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1541
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1710
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1878
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2047
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2239
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2441
+msgid "Line Height"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1215
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1386
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1548
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1717
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1885
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2054
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2246
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2448
+msgid "Letter Spacing"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1221
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1392
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1554
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1723
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1891
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2061
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2252
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2454
+msgid "Margin Top"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1227
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1398
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1560
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1729
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1897
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2068
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2258
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2460
+msgid "Margin Bottom"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1233
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1404
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1566
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1735
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1903
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2075
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2264
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2466
+msgid "Capitalization"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1239
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1410
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1572
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1741
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1909
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2081
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2270
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2472
+msgid "Uppercase"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1240
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1411
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1573
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1742
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1910
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2082
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2271
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2473
+msgid "Lowercase"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1241
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1412
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1574
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1743
+#: inc/customizer/class-visualcomposerstarter-customizer.php:1911
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2083
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2272
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2474
+msgid "Capitalize"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2157
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2169
+msgid "Secondary Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2170
+msgid ""
+"Secondary text color will be applied to block quotes, image captions, etc."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2183
+msgid "Active color that will be applied to links and bullets."
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2373
+msgid "Background Hover Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:2385
+msgid "Text Hover Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:23
+msgid "Standard Fonts"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:29
+msgid "Google Fonts"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:44
+msgid "Arial, Helvetica, sans-serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:48
+msgid "Arial Black, Gadget, sans-serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:52
+msgid "Bookman Old Style, serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:56
+msgid "Comic Sans MS, cursive"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:60
+msgid "Courier, monospace"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:64
+msgid "Garamond, serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:68
+msgid "Georgia, serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:72
+msgid "Impact, Charcoal, sans-serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:76
+msgid "Lucida Console, Monaco, monospace"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:80
+msgid "Lucida Sans Unicode, Lucida Grande, sans-serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:84
+msgid "MS Sans Serif, Geneva, sans-serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:88
+msgid "MS Serif, New York, sans-serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:92
+msgid "Palatino Linotype, Book Antiqua, Palatino, serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:96
+msgid "Tahoma, Geneva, sans-serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:100
+msgid "Times New Roman, Times, serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:104
+msgid "Trebuchet MS, Helvetica, sans-serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:108
+msgid "Verdana, Geneva, sans-serif"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:194
+msgid "All"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:195
+msgid "Cyrillic"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:196
+msgid "Cyrillic Extended"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:197
+msgid "Devanagari"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:198
+msgid "Greek"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:199
+msgid "Greek Extended"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:200
+msgid "Khmer"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:201
+msgid "Latin"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:202
+msgid "Latin Extended"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-fonts.php:203
+msgid "Vietnamese"
+msgstr ""
+
+#: inc/template-tags.php:126
+#, php-format
+msgid "%1$sPosted on%2$s %3$s"
+msgstr ""
+
+#: inc/template-tags.php:159 inc/template-tags.php:187
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:162
+msgid "Leave a comment"
+msgstr ""
+
+#: inc/template-tags.php:162
+msgid "1 Comment"
+msgstr ""
+
+#: inc/template-tags.php:162
+msgid "% Comments"
+msgstr ""
+
+#: inc/template-tags.php:178
+msgid "On"
+msgstr ""
+
+#: inc/template-tags.php:182
+msgid "by"
+msgstr ""
+
+#: inc/template-tags.php:186
+msgid "to"
+msgstr ""
+
+#: inc/template-tags.php:199
+msgid "Tags"
+msgstr ""
+
+#: inc/template-tags.php:247
+#, php-format
+msgid "%1$s %2$s says: %3$s"
+msgstr ""
+
+#: inc/template-tags.php:253
+#, php-format
+msgid "On %1$s at %2$s"
+msgstr ""
+
+#: inc/template-tags.php:255
+msgid "(Edit)"
+msgstr ""
+
+#: inc/template-tags.php:257
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:522
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:523
+msgid "Update Required"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:827
+#: inc/tgmpa/class-tgm-plugin-activation.php:2533
+#: inc/tgmpa/class-tgm-plugin-activation.php:3580
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:934
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:934
+#: inc/tgmpa/class-tgm-plugin-activation.php:937
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:937
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:1121
+#: inc/tgmpa/class-tgm-plugin-activation.php:2948
+msgid "and"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2342
+#, php-format
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2482
+msgid "unknown"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2533
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2684
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2908
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2934
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3509
+#: inc/tgmpa/class-tgm-plugin-activation.php:3517
+msgid "Show Details"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3509
+#: inc/tgmpa/class-tgm-plugin-activation.php:3517
+msgid "Hide Details"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3517
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: search.php:19
+#, php-format
+msgid "Search Results for %s"
+msgstr ""
+
+#: searchform.php:13
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:16
+msgid "Search"
+msgstr ""
+
+#: single.php:41
+msgid "Previous"
+msgstr ""
+
+#: single.php:41
+msgid "Previous post:"
+msgstr ""
+
+#: single.php:51
+msgid "Next"
+msgstr ""
+
+#: single.php:51
+msgid "Next post:"
+msgstr ""
+
+#: template-parts/content-gallery.php:41 template-parts/content-video.php:27
+#: template-parts/content.php:26
+msgid "Read More"
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:22
+#, php-format
+msgid "Ready to publish your first post? %1$sGet started here%2$s."
+msgstr ""
+
+#: template-parts/content-none.php:26
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:31
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""

@@ -16,6 +16,12 @@
 	}
 	add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
+	function my_child_theme_setup() {
+		load_child_theme_textdomain( 'visual-composer-starter', get_stylesheet_directory() . '/languages' );
+	}
+	add_action( 'after_setup_theme', 'my_child_theme_setup' );
+	
+
 	/*
 	 * Enregistrement des formats personnalisés de thumbnail
 	 */
