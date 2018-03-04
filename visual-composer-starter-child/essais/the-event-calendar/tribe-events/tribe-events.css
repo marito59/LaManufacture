@@ -1,0 +1,18 @@
+.tribe-events-list .tribe-events-loop .tribe-events-event-image {
+    width: 150px;
+    float: left;
+}
+
+.tribe-events-loop .tribe-events-event-meta {
+    float: left;
+    width: 150px;
+    margin: 15px;
+    padding: 10px;
+    background-color: #c4f8af;
+    text-align: right;
+    color: darkblue;
+}
+
+.tribe-events-list .tribe-events-list-event-title {
+    display: inline;
+}
