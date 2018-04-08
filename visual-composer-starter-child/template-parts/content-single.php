@@ -13,6 +13,22 @@
 <?php endif; ?>
 <div class="entry-content">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<?php /* Added by CMA
+			   * Si le post appartient à la catégorie Programme, alors on affiche la date (aussi dans la categorie) et l'heure (dans ACF)
+			   */
+			if (get_field('programme')) {
+				$prog_date = strtotime(get_field('prog_date'));
+				$prog_time = get_field('prog_time');
+				if ($prog_date) {
+					$dateformatstring = "l j F Y";
+					$prog_date = date_i18n($dateformatstring, $prog_date);
+		?>
+		<div class="cma-manid-prog-date-time"><span class="cma-manid-prog-date"><?php echo $prog_date;?></span> à <span class="cma-manid-prog-time"><?php echo $prog_time;?></span></div>
+		<?php
+				}
+			}
+				/* fin added by CMA */
+		?>	   
 		<?php /* modified by CMA 
 			   * But : contrôler comment est affiché le contenu du post avec le tag more, on veut que le contenu s'affiche
 		       * previous : the_content( '', true );
