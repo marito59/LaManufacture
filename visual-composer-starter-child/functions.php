@@ -37,6 +37,14 @@
 
 	add_action( 'display_posts_shortcode_output', 'cma_manid_dps_template_part', 10, 2 );
 
+	// enlever les boutons sharing de Jetpack qui s'affichent dans l'excerpt
+	// from : https://jetpack.com/2013/06/10/moving-sharing-icons/
+	function cma_manid_remove_share() {
+		remove_filter( 'the_excerpt', 'sharing_display', 19 );
+	}
+	
+	add_action( 'loop_start', 'cma_manid_remove_share' );
+
 	/*
 	 * Enregistrement des formats personnalisés de thumbnail
 	 */
@@ -61,8 +69,8 @@
 	function my_custom_excerpt_length( $length ) {
 		return 150; // set the number to the amount of words you want to appear in the excerpt
 	}
-	add_filter( 'excerpt_length', 'my_custom_excerpt_length');
-
+	//add_filter( 'excerpt_length', 'my_custom_excerpt_length');
+	
 	/**
 	 * Filter the "read more" excerpt string link to the post.
 	 *
