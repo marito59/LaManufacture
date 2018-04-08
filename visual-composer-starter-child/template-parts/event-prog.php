@@ -10,7 +10,7 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry-preview' ); ?>>
 	<div class="cma-manid-event-meta vc_col-sm-2">
-		<h2><?php echo get_field('prog_time'); ?></h2>
+		<h3><?php echo get_field('prog_time'); ?></h3>
 	</div>
 
 	<div class="cma-manid-event-content vc-col-sm-10">
@@ -22,8 +22,8 @@
 			<?php the_excerpt(); ?>
 		</div><!--.entry-content-->
 
-		<?php if ( ! is_singular() ) :?>
-			<a href="<?php echo esc_url( get_permalink( get_the_ID() ) ) ?>" class="blue-button read-more"><?php echo esc_html__( 'Read More', 'visual-composer-starter' ) ?></a>
-		<?php endif;?>
+		
+			<a href="<?php echo esc_url( get_permalink( get_the_ID() ) ) ?>" class="blue-button read-more">Plus d'informations</a>
+		
 	</div>
 </article><!--.entry-preview-->
