@@ -239,6 +239,20 @@
 	}
 	add_action( 'widgets_init', 'cma_manid_widgets_init' );
 
+	/* Modified by CMA
+	 * Display podcast if exists from ACF 
+	 */
+	function podcast_content($content) {
+		if (get_field('podcast_id') && is_single()) {
+			global $ss_podcasting;
+			$episode_id = get_field('podcast_id');
+			$audio_player = $ss_podcasting->episode_meta( $episode_id );
+			$content .= $audio_player;
+		}
 
+		return $content;
+	}
+	
+	add_filter('the_content','podcast_content');
 
 ?>
