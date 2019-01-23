@@ -239,20 +239,31 @@
 	}
 	add_action( 'widgets_init', 'cma_manid_widgets_init' );
 
-	/* Modified by CMA
-	 * Display podcast if exists from ACF 
-	 */
-	function podcast_content($content) {
-		if (get_field('podcast_id') && is_single()) {
-			global $ss_podcasting;
-			$episode_id = get_field('podcast_id');
-			$audio_player = $ss_podcasting->episode_meta( $episode_id );
-			$content .= $audio_player;
-		}
 
+	function extra_content( $content ) {
+		if ( is_single() && in_the_loop() && is_main_query() ) {
+			// Ajouté par CMA : afficher la vidéo mise en avant (pages invités) si elle existe
+			$embed = get_field('video_mise_en_avant');
+			if ($embed) {
+				if ( preg_match( "[audio", $embed) ) {
+					$extra_content = do_shortcode( $embed );
+				} else { 
+					$extra_content = "<div class='embed-container'>" . $embed . "</div>";
+				}
+			}
+			$content .= $extra_content;
+		
+			// Ajputé par CMA : affiche le podcast dans les pages Programme si il existe
+			if ( get_field('podcast_id') ) {
+				global $ss_podcasting;
+				$episode_id = get_field('podcast_id');
+				$audio_player = $ss_podcasting->episode_meta( $episode_id );
+				$content .= $audio_player;
+			}
+		}
 		return $content;
 	}
-	
-	add_filter('the_content','podcast_content');
+
+	add_filter('the_content','extra_content');
 
 ?>
