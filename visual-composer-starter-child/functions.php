@@ -245,10 +245,16 @@
 			$audio_player = "";
 			$extra_content = "";
 			$extra_content2 = "";
+			$title = "";
+			$content .= "<div class='cma-extra-content'>";
 
 			// Ajouté par CMA : afficher la vidéo mise en avant (pages invités) si elle existe
 			$embed = get_field('video_mise_en_avant');
 			if ($embed) {
+				$title = get_field( 'titre_video_1');
+				if ($title) {
+					$content .= "<h4>" . $title . "</h4>";
+				}
 				if ( preg_match( "[audio", $embed) ) {
 					$extra_content = do_shortcode( $embed );
 				} else { 
@@ -260,6 +266,10 @@
 			// Ajouté par CMA : afficher la 2ème vidéo mise en avant (pages invités) si elle existe
 			$embed = get_field('video_mise_en_avant_2');
 			if ($embed) {
+				$title = get_field( 'titre_video_2');
+				if ($title) {
+					$content .= "<h4>" . $title . "</h4>";
+				}
 				if ( preg_match( "[audio", $embed) ) {
 					$extra_content2 = do_shortcode( $embed );
 				} else { 
@@ -270,11 +280,16 @@
 		
 			// Ajouté par CMA : affiche le podcast dans les pages Programme si il existe
 			if ( get_field('podcast_id') ) {
+				$title = get_field( 'titre_podcast');
+				if ($title) {
+					$content .= "<h4>" . $title . "</h4>";
+				}
 				global $ss_podcasting;
 				$episode_id = get_field('podcast_id');
 				$audio_player = $ss_podcasting->episode_meta( $episode_id );
 				$content .= $audio_player;
 			}
+			$content .= "</div>";
 		}
 		return $content;
 	}
