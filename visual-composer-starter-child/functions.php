@@ -296,4 +296,42 @@
 
 	add_filter('the_content','extra_content');
 
+	// Ajout du Caption de la featured image dans le Grid Builder de WPBakery Page Builder
+	// code extrait de https://kb.wpbakery.com/docs/developers-how-tos/adding-custom-shortcode-to-grid-builder/
+
+	add_filter( 'vc_grid_item_shortcodes', 'mfid_add_grid_shortcodes' );
+	
+	function mfid_add_grid_shortcodes( $shortcodes ) {
+	 	$shortcodes['vc_featured_caption'] = array(
+			'name' => __( 'Légende de l\'image', 'my-text-domain' ),
+			'base' => 'vc_featured_caption',
+			'category' => __( 'Perso', 'my-text-domain' ),
+			'description' => __( 'Affiche la légende de l\'image mise en avant de l\'article', 'my-text-domain' ),
+			'post_type' => Vc_Grid_Item_Editor::postType(),
+		);
+	 
+		 return $shortcodes;
+	}
+	// output function
+	add_shortcode( 'vc_featured_caption', 'vc_featured_caption_render' );
+	
+	function vc_featured_caption_render($atts, $content, $tag) {
+	 	return '<span class="mfid-featured-caption">{{ featured_caption }}</span>';
+	}
+		
+	add_filter( 'vc_gitem_template_attribute_featured_caption', 'mfid_template_attribute_featured_caption', 10, 2 );
+	
+	function mfid_template_attribute_featured_caption( $value, $data ) {
+		/**
+			* @var Wp_Post $post
+			* @var string $data
+			*/
+	 	extract( array_merge( array(
+			'post' => null,
+			'data' => '',
+	 	), $data ) );
+	 
+	 	return get_the_excerpt( get_post_thumbnail_id( $post->ID ));
+	}
+
 ?>
