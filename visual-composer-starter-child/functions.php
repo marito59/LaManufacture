@@ -240,8 +240,33 @@
 	add_action( 'widgets_init', 'cma_manid_widgets_init' );
 
 
+	/* vérifie si l'élément de programme est de l'année en cours */
+	function manid_check_current_edition( $postid ) {
+		$categories = get_the_category($postid);
+		$year = "Programme " . date("Y");
+		$found = false;
+		foreach( $categories as $category ) {
+			$pos =  strpos($category->name, $year);
+			if ($pos === 0) {
+				$found = true;
+				break;
+			}
+		}
+		return $found;
+	}
+
 	function extra_content( $content ) {
 		if ( is_single() && in_the_loop() && is_main_query() ) {
+			/* ajout du bouton de billetterie */
+			if (manid_check_current_edition(get_the_ID())) {
+				$prog_date = strtotime(get_field('prog_date'));
+				if ($prog_date > time()) {
+					$content .= do_shortcode( '[include-page id="4758"]' );
+				}	else {
+					$content .= '<p class="billeterie-fermee">Réservation terminée</p>';
+				}
+			}
+			/* ajout des podcasts et vidéos */
 			$audio_player = "";
 			$extra_content = "";
 			$extra_content2 = "";
