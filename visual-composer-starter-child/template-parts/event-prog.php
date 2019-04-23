@@ -19,7 +19,7 @@
 		</div>
 		<div class="entry-content vc_col-sm-7">
 			<?php the_title( sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
-			<?php the_excerpt(); ?>
+			<?php the_content(); ?>
 		</div><!--.entry-content-->
 
 		
