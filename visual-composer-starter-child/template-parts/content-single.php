@@ -29,6 +29,13 @@
 			}
 				/* fin added by CMA */
 		?>	   
+		<?php /* Added by CMA : ajout de la vidéo si elle existe */
+			if (get_field("video")) {
+				?>
+				<div class='embed-container'><?php the_field('video');?></div>
+				<?php
+			}
+		?>
 		<?php /* modified by CMA 
 			   * But : contrôler comment est affiché le contenu du post avec le tag more, on veut que le contenu s'affiche
 		       * previous : the_content( '', true );

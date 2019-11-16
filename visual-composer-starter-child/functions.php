@@ -255,6 +255,43 @@
 		return $found;
 	}
 
+	/* Affiche les participations d'un invité */
+	function manid_get_participations_list( $inviteID ) {
+		$output = "";
+		/*
+		*  Query posts for a relationship value.
+		*  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
+		*  From : https://www.advancedcustomfields.com/resources/querying-relationship-fields/
+		*/
+
+ 		$participations = get_posts(array(
+			'post_type' => 'post',
+			'meta_query' => array(
+				array(
+					'key' => 'invites', // name of custom field
+					'value' => '"' . $inviteID . '"', // matches exactly "123", not just 123. This prevents a match for "1234"
+					'compare' => 'LIKE'
+				)
+			)
+		)); 
+		if( $participations ) {
+			$output .= "<div class='manid-particpations'><h4>Interventions à La Manufacture d'idées</h4><ul>";
+ 			foreach( $participations as $participation ) {
+				$output .= "<li><a href='" . get_permalink( $participation->ID ) . "'>";
+				$prog_date = strtotime(get_field('prog_date', $participation->ID));
+				if ($prog_date) {
+					$dateformatstring = "j F Y";
+					$prog_date = date_i18n($dateformatstring, $prog_date);
+					$output .= $prog_date . " : ";
+				}
+				$output .= get_the_title( $participation->ID );
+				$output .= "</a></li>";
+			}
+			$output .= "</ul></div>";
+		}
+		return $output;
+	}
+
 	function extra_content( $content ) {
 		if ( is_single() && in_the_loop() && is_main_query() ) {
 			/* ajout du bouton de billetterie */
@@ -273,19 +310,26 @@
 			$title = "";
 			$content .= "<div class='cma-extra-content'>";
 
+			/* Ajouté par CMA : afficher la liste des participations d'un invité 
+			 * TODO : filtrer sur invité
+			 */
+			if (get_field('display_title')) {
+				$content .= manid_get_participations_list (get_the_ID());
+			}
 			// Ajouté par CMA : afficher la vidéo mise en avant (pages invités) si elle existe
+			$videos = "";
 			$embed = get_field('video_mise_en_avant');
 			if ($embed) {
 				$title = get_field( 'titre_video_1');
 				if ($title) {
-					$content .= "<h4>" . $title . "</h4>";
+					$videos .= "<li>" . $title . "</li><br />";
 				}
 				if ( preg_match( "[audio", $embed) ) {
 					$extra_content = do_shortcode( $embed );
 				} else { 
 					$extra_content = "<div class='embed-container'>" . $embed . "</div>";
 				}
-				$content .= $extra_content;
+				$videos .= $extra_content;
 			}
 
 			// Ajouté par CMA : afficher la 2ème vidéo mise en avant (pages invités) si elle existe
@@ -293,14 +337,17 @@
 			if ($embed) {
 				$title = get_field( 'titre_video_2');
 				if ($title) {
-					$content .= "<h4>" . $title . "</h4>";
+					$videos .= "<li>" . $title . "</li><p>&nbsp;</p>";
 				}
 				if ( preg_match( "[audio", $embed) ) {
 					$extra_content2 = do_shortcode( $embed );
 				} else { 
 					$extra_content2 = "<div class='embed-container'>" . $embed . "</div>";
 				}
-				$content .= $extra_content2;
+				$videos .= $extra_content2;
+			}
+			if ($videos !== "") {
+				$content .= "<h4>En savoir plus</h4><ul>" . $videos . "</ul>";
 			}
 		
 			// Ajouté par CMA : affiche le podcast dans les pages Programme si il existe
