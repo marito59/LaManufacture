@@ -381,16 +381,26 @@
 			'description' => __( 'Affiche la légende de l\'image mise en avant de l\'article', 'my-text-domain' ),
 			'post_type' => Vc_Grid_Item_Editor::postType(),
 		);
-	 
+		$shortcodes['vc_content'] = array(
+			'name' => __( 'Contenu de l\'article', 'my-text-domain' ),
+			'base' => 'vc_content',
+			'category' => __( 'Perso', 'my-text-domain' ),
+			'description' => __( 'Affiche la contenu de l\'article', 'my-text-domain' ),
+			'post_type' => Vc_Grid_Item_Editor::postType(),
+		);	 
 		 return $shortcodes;
 	}
 	// output function
 	add_shortcode( 'vc_featured_caption', 'vc_featured_caption_render' );
+	add_shortcode( 'vc_content', 'vc_content_render' );
 	
 	function vc_featured_caption_render($atts, $content, $tag) {
 	 	return '<span class="mfid-featured-caption">{{ featured_caption }}</span>';
 	}
-		
+	function vc_content_render($atts, $content, $tag) {
+		return '<span class="mfid-content">{{ content }}</span>';
+   }
+	   
 	add_filter( 'vc_gitem_template_attribute_featured_caption', 'mfid_template_attribute_featured_caption', 10, 2 );
 	
 	function mfid_template_attribute_featured_caption( $value, $data ) {
@@ -405,5 +415,18 @@
 	 
 	 	return get_the_excerpt( get_post_thumbnail_id( $post->ID ));
 	}
-
+	add_filter( 'vc_gitem_template_attribute_content', 'mfid_template_attribute_content', 10, 2 );
+	
+	function mfid_template_attribute_content ( $value, $data ) {
+		/**
+			* @var Wp_Post $post
+			* @var string $data
+			*/
+	 	extract( array_merge( array(
+			'post' => null,
+			'data' => '',
+	 	), $data ) );
+	 
+	 	return get_the_content("");
+	}
 ?>
