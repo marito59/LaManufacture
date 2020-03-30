@@ -292,76 +292,110 @@
 		return $output;
 	}
 
+	function display_tarifs() {
+		$tarif = "";
+		$tarif_plein = "";
+		$tarif_reduit = "";
+		$tarif_adherent = "";
+		$tarif_enfant = "";
+
+		$type_tarif = get_field('tarif');
+		switch ($type_tarif) {
+			case "gratuit":
+				$tarif = "GRATUIT DANS LA LIMITE DES PLACES DISPONIBLES - réservation conseillée";
+			break;
+
+			case "tarif unique":
+				while( have_rows('groupe_tarifs') ) {
+					the_row(); 
+        			// Get sub field values.
+					$tarif = sprintf( "Tarif unique &ndash; %d €", get_sub_field("tarif_plein") );
+				}
+			break;
+
+			case "tarifs multiples":
+				while( have_rows('groupe_tarifs') ) {
+					the_row(); 
+        			// Get sub field values.
+					$tarif_plein = get_sub_field("tarif_plein");
+					$tarif_reduit = get_sub_field('tarif_reduit');
+					$tarif_adherent = get_sub_field('tarif_adherent');
+					$tarif_enfant = get_sub_field('tarif_enfant');
+					
+					if( $tarif_plein ) {
+						$tarif .= sprintf ("Plein tarif &ndash; %d €", $tarif_plein);
+					} 
+					if( $tarif_adherent ) {
+						$tarif .= sprintf ("%s Adhérent &ndash; %d €", ($tarif === "")?"":" / ", $tarif_adherent);
+					}
+					if( $tarif_reduit ) {
+						$tarif .= sprintf ("%s Tarif réduit &ndash; %d €", ($tarif === "")?"":" / ", $tarif_reduit);
+					}
+					if( $tarif_enfant ) {
+						$tarif .= sprintf ("%s -16 ans &ndash; %d €", ($tarif === "")?"":" / ", $tarif_enfant);
+					}
+				}
+				break;
+		}
+		return $tarif;
+	}
+
 	function extra_content( $content ) {
+		$content_billetterie = "";
+		$content_programme = "";
+		$content_invites = "";
+
 		if ( is_single() && in_the_loop() && is_main_query() ) {
-			/* ajout du bouton de billetterie */
-			if (manid_check_current_edition(get_the_ID())) {
-				$prog_date = strtotime(get_field('prog_date'));
-				if ($prog_date > time()) {
-					$content .= do_shortcode( '[include-page id="4758"]' );
-				}	else {
-					$content .= '<p class="billeterie-fermee">Réservation terminée</p>';
+			if (in_category("Programme")) {
+				if (manid_check_current_edition(get_the_ID())) {
+					// Ajout du tarif
+					$tarifs = display_tarifs();
+					if($tarifs <> "") {
+						$content_billetterie .= sprintf ("<p class='tarif'><strong>%s</strong></p>", $tarifs);
+					}
+					/* ajout du bouton de billetterie 
+					 * si l'édition de l'évènement est l'édition en cours et si l'évènement n'est pas passé*/
+					$prog_date = strtotime(get_field('prog_date'));
+					if ($prog_date > time()) {
+						$content_billetterie .= do_shortcode( '[include-page id="4758"]' );
+					}	else {
+						$content_billetterie .= '<p class="billeterie-fermee">Réservation terminée</p>';
+					}
 				}
-			}
+			}	
 			/* ajout des podcasts et vidéos */
-			$audio_player = "";
-			$extra_content = "";
-			$extra_content2 = "";
-			$title = "";
-			$content .= "<div class='cma-extra-content'>";
-
-			/* Ajouté par CMA : afficher la liste des participations d'un invité 
-			 * TODO : filtrer sur invité
-			 */
-			if (get_field('display_title')) {
-				$content .= manid_get_participations_list (get_the_ID());
-			}
-			// Ajouté par CMA : afficher la vidéo mise en avant (pages invités) si elle existe
-			$videos = "";
-			$embed = get_field('video_mise_en_avant');
-			if ($embed) {
-				$title = get_field( 'titre_video_1');
-				if ($title) {
-					$videos .= "<li>" . $title . "</li><br />";
-				}
-				if ( preg_match( "[audio", $embed) ) {
-					$extra_content = do_shortcode( $embed );
-				} else { 
-					$extra_content = "<div class='embed-container'>" . $embed . "</div>";
-				}
-				$videos .= $extra_content;
-			}
-
-			// Ajouté par CMA : afficher la 2ème vidéo mise en avant (pages invités) si elle existe
-			$embed = get_field('video_mise_en_avant_2');
-			if ($embed) {
-				$title = get_field( 'titre_video_2');
-				if ($title) {
-					$videos .= "<li>" . $title . "</li><p>&nbsp;</p>";
-				}
-				if ( preg_match( "[audio", $embed) ) {
-					$extra_content2 = do_shortcode( $embed );
-				} else { 
-					$extra_content2 = "<div class='embed-container'>" . $embed . "</div>";
-				}
-				$videos .= $extra_content2;
-			}
-			if ($videos !== "") {
-				$content .= "<h4>En savoir plus</h4><ul>" . $videos . "</ul>";
-			}
 		
 			// Ajouté par CMA : affiche le podcast dans les pages Programme si il existe
-			if ( get_field('podcast_id') ) {
+			if ( in_category('Programme') && get_field('podcast_id') ) {
+				$audio_player = "";
+				$title = "";
+	
 				$title = get_field( 'titre_podcast');
 				if ($title) {
-					$content .= "<h4>" . $title . "</h4>";
+					$content_programme .= "<h4>" . $title . "</h4>";
 				}
 				global $ss_podcasting;
 				$episode_id = get_field('podcast_id');
 				$audio_player = $ss_podcasting->episode_meta( $episode_id );
-				$content .= $audio_player;
+				$content_programme .= $audio_player;
 			}
-			$content .= "</div>";
+
+			//Ajouté par CMA : affiche le contenus additionel des invités
+			if (in_category('Invités')) {
+				$content_invites .= display_invites_content();
+			
+				/* Ajouté par CMA : afficher la liste des participations d'un invité 
+				* TODO : filtrer sur invité
+				*/
+				if (get_field('display_title')) {
+					$content_invites .= manid_get_participations_list (get_the_ID());
+				}
+
+				if ($content_invites !== "") {
+					$content_invites = sprintf("<div class='cma-extra-content'>%s</div>", $content_invites);
+				}
+			}
+			$content .= $content_billetterie . $content_programme . $content_invites;
 		}
 		return $content;
 	}
@@ -429,4 +463,126 @@
 	 
 	 	return get_the_content("");
 	}
+
+	// allow recurring calls to display-posts
+	// from : https://displayposts.com/2019/01/04/enable-display-posts-within-post-listing/
+	add_filter( 'display_posts_shortcode_inception_override', '__return_false' );
+	
+
+	// AJout CMA : Champs en savoir plus dans les pages invités
+	function display_invites_content () {
+		// loop autour des liens externes
+		$extra_more_content = "";
+		$extra_more_content_externes = "";
+		$extra_more_content_festival = "";
+		if( have_rows('externes') ) {
+			$articles = "";
+			$videos = "";
+			while( have_rows('externes') ): the_row(); 
+				if( get_row_layout() == 'articles_media_' ) {
+					if( have_rows('article_media') ) {
+						$articles .= "<div class='mfid-more_articles'><ul>";
+						while( have_rows('article_media') ): the_row();
+							$articles .= sprintf( "<li><a href='%s' title='%s' target='_blank'>%s</a>", get_sub_field("media"), get_sub_field('titre'), get_sub_field("titre") );
+						endwhile;
+						$articles .= "</ul></div>";
+					}	
+				} elseif( get_row_layout() == 'articles_externes_' ) {
+					if( have_rows('article_externe') ) {
+						$articles .= "<div class='mfid-more_articles'><ul>";
+						while( have_rows('article_externe') ): the_row();
+							$articles .= sprintf( "<li><a href='%s' title='%s' target='_blank'>%s</a>", get_sub_field("url"), get_sub_field('titre'), get_sub_field("titre") );
+						endwhile;
+						$articles .= "</ul></div>";
+					}	
+				} elseif( get_row_layout() == 'audio_media_' ) {
+					if( have_rows('audio_media') ) {
+						$videos .= "<div class='mfid-more_audio'><ul>";
+						while( have_rows('audio_media') ): the_row();
+//							$videos .= sprintf( "<li><a href='%s' title='%s' target='_blank'>%s</a>", get_sub_field("media"), get_sub_field('titre'), get_sub_field("titre") );
+						endwhile;
+						$videos .= "</ul></div>";
+					}	
+				} elseif( get_row_layout() == 'audio_externe_' ) { 
+					if( have_rows('audio_externe') ) {
+						$videos .= "<div class='mfid-more_audio'><ul>";
+						while( have_rows('audio_externe') ): the_row();
+							$videos .= sprintf( "<li>%s</li><div class='embed-container'>%s</div>", get_sub_field("titre"), get_sub_field('data') );
+						endwhile;
+						$videos .= "</ul></div>";
+					}	
+				} elseif( get_row_layout() == 'video_externe_' ) { 
+					if( have_rows('video_externe') ) {
+						$videos .= "<div class='mfid-more_video'><ul>";
+						while( have_rows('video_externe') ): the_row();
+							$embed = get_sub_field('url');
+							if ($embed) {
+								$title = get_sub_field( 'titre');
+								if ($title) {
+									$videos .= "<li>" . $title . "</li><p>&nbsp;</p>";
+								}
+								if ( preg_match( "[audio", $embed) ) {
+									$videos .= do_shortcode( $embed );
+								} else { 
+									$videos .= "<div class='embed-container'>" . $embed . "</div>";
+								}
+							}
+						endwhile;
+						$videos .= "</ul></div>";
+					}	
+				} 
+			endwhile;
+			if( $articles <> "") {
+				$extra_more_content_externes .= "<h4>A lire</h4>" . $articles;
+			}
+			if( $videos <> "") {
+				$extra_more_content_externes .= "<h4>A voir, à écouter</h4>" . $videos;
+			}
+		} elseif( have_rows('festival') ) {
+			$videos = "";
+			$audios = "";
+			while( have_rows('festival') ): the_row(); 
+				if( get_row_layout() == 'audio_festival_' ) {
+					if( have_rows('audio_festival') ) {
+						$audios .= "<div class='mfid-more_audio'><ul>";
+						while( have_rows('audio_festival') ): the_row();
+							$audios .= "<li>" . get_sub_field( 'titre') . "</li>";
+
+							global $ss_podcasting;
+							$episode_id = get_sub_field('podcast_id');
+							$audio_player = $ss_podcasting->episode_meta( $episode_id );
+							$audios .= $audio_player;
+						endwhile;
+						$audios .= "</ul></div>";
+					}	
+				} elseif( get_row_layout() == 'video_festival_' ) { 
+					if( have_rows('video_festival') ) {
+						$videos .= "<div class='mfid-more_video'><ul>";
+						while( have_rows('video_festival') ): the_row();
+							$embed = get_sub_field('url');
+							if ($embed) {
+								$title = get_sub_field( 'titre');
+								if ($title) {
+									$videos .= "<li>" . $title . "</li><p>&nbsp;</p>";
+								}
+								if ( preg_match( "[audio", $embed) ) {
+									$videos .= do_shortcode( $embed );
+								} else { 
+									$videos .= "<div class='embed-container'>" . $embed . "</div>";
+								}
+							}
+						endwhile;
+						$videos .= "</ul></div>";
+					}	
+				} 
+			endwhile;
+			if( $audios <> "" || $videos <> "") {
+				$extra_more_content_festival = "<h4>A (re)voir, à (ré)écouter</h4>" . $videos . $audios;
+			}
+		}
+		if ($extra_more_content_externes <> "" || $extra_more_content_festival <> "") {
+			$extra_more_content = "<h3>En savoir plus</h3>" . $extra_more_content_externes . $extra_more_content_festival;
+		}
+		return $extra_more_content; 
+	}	
 ?>

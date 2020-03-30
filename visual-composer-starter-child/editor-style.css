@@ -1,0 +1,5 @@
+/* passe le texte à la ligne si le tag précédent est en float */
+
+.cma-manid-clear {
+    clear: both;
+}
