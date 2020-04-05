@@ -335,7 +335,10 @@
 						$tarif .= sprintf ("%s -16 ans &ndash; %d €", ($tarif === "")?"":" / ", $tarif_enfant);
 					}
 				}
-				break;
+			break;
+				
+			case "none":
+			break;
 		}
 		return $tarif;
 	}
@@ -357,7 +360,7 @@
 					 * si l'édition de l'évènement est l'édition en cours et si l'évènement n'est pas passé*/
 					$prog_date = strtotime(get_field('prog_date'));
 					if ($prog_date > time()) {
-						$content_billetterie .= do_shortcode( '[include-page id="4758"]' );
+						$content_billetterie .= do_shortcode( '[display-posts post_type="page" id="4758" include_title="false" include_content="true" wrapper="div"]' );
 					}	else {
 						$content_billetterie .= '<p class="billeterie-fermee">Réservation terminée</p>';
 					}

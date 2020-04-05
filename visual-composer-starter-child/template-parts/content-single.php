@@ -16,7 +16,7 @@
 		<?php /* Added by CMA
 			   * Si le post appartient à la catégorie Programme, alors on affiche la date (aussi dans la categorie) et l'heure (dans ACF)
 			   */
-			if (get_field('programme')) {
+			if (in_category('Programme')) {
 				$prog_date = strtotime(get_field('prog_date'));
 				$prog_time = get_field('prog_time');
 				if ($prog_date) {
