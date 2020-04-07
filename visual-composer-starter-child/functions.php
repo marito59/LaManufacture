@@ -359,10 +359,18 @@
 					/* ajout du bouton de billetterie 
 					 * si l'édition de l'évènement est l'édition en cours et si l'évènement n'est pas passé*/
 					$prog_date = strtotime(get_field('prog_date'));
+					$billetterie_date = strtotime( get_field( 'date_ouverture_billetterie', 'option'));
 					if ($prog_date > time()) {
-						$content_billetterie .= do_shortcode( '[display-posts post_type="page" id="4758" include_title="false" include_content="true" wrapper="div"]' );
-					}	else {
-						$content_billetterie .= '<p class="billeterie-fermee">Réservation terminée</p>';
+						/* la date est à venir */
+						if ( $billetterie_date > time()) { 
+							/* la billetterie n'est pas encore ouverte */ 
+							$content_billetterie .= do_shortcode(get_field( 'message_billetterie_pre-ouverture', 'option'));
+						} else {
+							// affiche le bouton billetterie
+							$content_billetterie .= do_shortcode( '[display-posts post_type="page" id="4758" include_title="false" include_content="true" wrapper="div"]' );
+						}
+					} else {
+						$content_billetterie .= get_field( 'message_billetterie_fermee', 'option' );
 					}
 				}
 			}	
@@ -588,4 +596,26 @@
 		}
 		return $extra_more_content; 
 	}	
+
+	
+	/* option de menu Admin pour La Manufacture 
+	 * via ACF
+	 */
+
+	add_action('acf/init', 'manid_opt_init');
+	function manid_opt_init() {
+	
+		// Check function exists.
+		if( function_exists('acf_add_options_page') ) {
+	
+			// Register options page.
+			$option_page = acf_add_options_page(array(
+				'page_title'    => __('Options La Manufacture d\'idées'),
+				'menu_title'    => __('La Manufacture d\'idées'),
+				'menu_slug'     => 'manid-options',
+				'capability'    => 'edit_posts',
+				'redirect'      => false
+			));
+		}
+	}
 ?>
