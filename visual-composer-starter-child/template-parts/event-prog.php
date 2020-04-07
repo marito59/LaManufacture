@@ -19,11 +19,11 @@
 		</div>
 		<div class="entry-content vc_col-sm-7">
 			<?php the_title( sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
-			<?php the_content(); ?>
+			<?php the_content(''); ?>
 		</div><!--.entry-content-->
 
 		
-			<a href="<?php echo esc_url( get_permalink( get_the_ID() ) ) ?>" class="blue-button read-more">Plus d'informations</a>
+			<a href="<?php echo esc_url( get_permalink( ) ) ?>" class="blue-button read-more">Plus d'informations</a>
 		
 	</div>
 </article><!--.entry-preview-->

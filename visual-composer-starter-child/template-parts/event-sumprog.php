@@ -14,8 +14,11 @@
 	</div>
 
 	<div class="cma-manid-event-content entry-content vc_col-sm-10">
-        <?php the_title( '<h4 class="entry-title">', '</h4>' ); ?>
-        <p><?php the_content(); ?></p>
-    </div><!--.entry-content-->		
+		<a href="<?php echo esc_url( get_permalink( ) ) ?>" title="Plus d\'informations">
+			<?php the_title( '<h4 class="entry-title">', '</h4>' ); ?>
+		</a>
+		<?php the_content(''); ?>
+		<div class="mfid-sumprog-more"><a href="<?php echo esc_url( get_permalink( ) ) ?>"><i class="fas fa-arrow-circle-right"></i></a></div>
+	</div><!--.entry-content-->		
 </article><!--.entry-preview-->
 

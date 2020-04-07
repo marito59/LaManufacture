@@ -19,7 +19,7 @@
 		</div>
 		<div class="entry-content vc_col-sm-7">
 			<?php the_title( sprintf( '<h4 class="entry-title">', esc_url( get_permalink() ) ), '</h4>' ); ?>
-			<?php the_content(); ?>
+			<?php the_content(''); ?>
 		</div><!--.entry-content-->		
 	</div>
 </article><!--.entry-preview-->
