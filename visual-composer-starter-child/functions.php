@@ -85,6 +85,13 @@
 	}
 	//add_filter( 'excerpt_more', 'my_custom_excerpt_more' );
 
+	// filtre pour éviter le scroll quand on clique sur Lire la suite
+	function remove_more_link_scroll( $link ) {
+		$link = preg_replace( '|#more-[0-9]+|', '', $link );
+		return $link;
+	}
+	add_filter( 'the_content_more_link', 'remove_more_link_scroll' );
+
 	/*
 	 * Function pour permettre de remonter en haut de la page (back to top)
 	 */
@@ -272,7 +279,8 @@
 					'value' => '"' . $inviteID . '"', // matches exactly "123", not just 123. This prevents a match for "1234"
 					'compare' => 'LIKE'
 				)
-			)
+				),
+			'category__not_in' => '87' // suppression de l'édition de mai reportée à août en 2020
 		)); 
 		if( $participations ) {
 			$output .= "<div class='manid-particpations'><h4>Interventions à La Manufacture d'idées</h4><ul>";
@@ -302,14 +310,14 @@
 		$type_tarif = get_field('tarif');
 		switch ($type_tarif) {
 			case "gratuit":
-				$tarif = "GRATUIT DANS LA LIMITE DES PLACES DISPONIBLES - réservation conseillée";
+				$tarif = get_field( 'message_entree_gratuite', 'option' );
 			break;
 
 			case "tarif unique":
 				while( have_rows('groupe_tarifs') ) {
 					the_row(); 
         			// Get sub field values.
-					$tarif = sprintf( "Tarif unique &ndash; %d €", get_sub_field("tarif_plein") );
+					$tarif = sprintf( "Tarif unique &nbsp; %d €", get_sub_field("tarif_plein") );
 				}
 			break;
 
@@ -321,18 +329,20 @@
 					$tarif_reduit = get_sub_field('tarif_reduit');
 					$tarif_adherent = get_sub_field('tarif_adherent');
 					$tarif_enfant = get_sub_field('tarif_enfant');
+					$msg_reduit = null;
 					
 					if( $tarif_plein ) {
-						$tarif .= sprintf ("Plein tarif &ndash; %d €", $tarif_plein);
+						$tarif .= sprintf ("Plein tarif &nbsp; %d €", $tarif_plein);
 					} 
 					if( $tarif_adherent ) {
-						$tarif .= sprintf ("%s Adhérent &ndash; %d €", ($tarif === "")?"":" / ", $tarif_adherent);
+						$tarif .= sprintf ("%s Adhérent &nbsp; %d €", ($tarif === "")?"":" / ", $tarif_adherent);
 					}
 					if( $tarif_reduit ) {
-						$tarif .= sprintf ("%s Tarif réduit &ndash; %d €", ($tarif === "")?"":" / ", $tarif_reduit);
+						$tarif .= sprintf ("%s Tarif réduit &nbsp; %d €", ($tarif === "")?"":" / ", $tarif_reduit);
+						$msg_reduit = get_field("message_tarif_reduit", "option");
 					}
 					if( $tarif_enfant ) {
-						$tarif .= sprintf ("%s -16 ans &ndash; %d €", ($tarif === "")?"":" / ", $tarif_enfant);
+						$tarif .= sprintf ("%s -16 ans &nbsp; %d €", ($tarif === "")?"":" / ", $tarif_enfant);
 					}
 				}
 			break;
@@ -340,7 +350,29 @@
 			case "none":
 			break;
 		}
+		if ($tarif <> '') {
+			$tarif = sprintf('<p class="tarif">%s</p>', $tarif);
+			if ($msg_reduit) {
+				$tarif .= sprintf("<span class='msg_tarif_reduit'>%s</span>", $msg_reduit);
+			}
+		//	$tarif .= "</p>";
+		}
 		return $tarif;
+	}
+
+	function lien_intervenants($content) {
+		$invites = get_field('invites');
+		if( $invites ): 
+			foreach( $invites as $inviteID ): 
+				$i_permalink = get_permalink( $inviteID );
+				$i_title = get_the_title( $inviteID );
+				$len = strlen($i_title);
+				$pos = strpos($content, $i_title);
+				$replacestr = sprintf("<a class='lien_invite' href='%s' title='%s'>%s</a>", esc_url( $i_permalink ), $i_title, $i_title);
+				$content = substr_replace($content, $replacestr, $pos, $len);
+			endforeach; 
+		endif;
+		return $content;
 	}
 
 	function extra_content( $content ) {
@@ -350,11 +382,12 @@
 
 		if ( is_single() && in_the_loop() && is_main_query() ) {
 			if (in_category("Programme")) {
+				$content = lien_intervenants($content);
 				if (manid_check_current_edition(get_the_ID())) {
 					// Ajout du tarif
 					$tarifs = display_tarifs();
 					if($tarifs <> "") {
-						$content_billetterie .= sprintf ("<p class='tarif'><strong>%s</strong></p>", $tarifs);
+						$content_billetterie .= $tarifs;
 					}
 					/* ajout du bouton de billetterie 
 					 * si l'édition de l'évènement est l'édition en cours et si l'évènement n'est pas passé*/
@@ -398,7 +431,7 @@
 				/* Ajouté par CMA : afficher la liste des participations d'un invité 
 				* TODO : filtrer sur invité
 				*/
-				if (get_field('display_title')) {
+				if (get_field('display_title') && get_field("hide_previous_occurrence") != "Oui") {
 					$content_invites .= manid_get_participations_list (get_the_ID());
 				}
 

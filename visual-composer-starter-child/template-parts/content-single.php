@@ -23,7 +23,7 @@
 					$dateformatstring = "l j F Y";
 					$prog_date = date_i18n($dateformatstring, $prog_date);
 		?>
-		<div class="cma-manid-prog-date-time"><span class="cma-manid-prog-date"><?php echo $prog_date;?></span> à <span class="cma-manid-prog-time"><?php echo $prog_time;?></span></div>
+		<div class="cma-manid-prog-date-time"><span class="cma-manid-prog-date"><?php echo $prog_date;?></span> - <span class="cma-manid-prog-time"><?php echo $prog_time;?></span></div>
 		<?php
 				}
 			}
