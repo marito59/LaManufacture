@@ -317,7 +317,7 @@
 				while( have_rows('groupe_tarifs') ) {
 					the_row(); 
         			// Get sub field values.
-					$tarif = sprintf( "Tarif unique &nbsp; %d €", get_sub_field("tarif_plein") );
+					$tarif = sprintf( "Tarif unique &nbsp; %s €", get_sub_field("tarif_plein") );
 				}
 			break;
 
@@ -332,17 +332,17 @@
 					$msg_reduit = null;
 					
 					if( $tarif_plein ) {
-						$tarif .= sprintf ("Plein tarif &nbsp; %d €", $tarif_plein);
+						$tarif .= sprintf ('Plein tarif &nbsp; %s €', $tarif_plein);
 					} 
 					if( $tarif_adherent ) {
-						$tarif .= sprintf ("%s Adhérent &nbsp; %d €", ($tarif === "")?"":" / ", $tarif_adherent);
+						$tarif .= sprintf ("%s Adhérent &nbsp; %s €", ($tarif === "")?"":" / ", $tarif_adherent);
 					}
 					if( $tarif_reduit ) {
-						$tarif .= sprintf ("%s Tarif réduit &nbsp; %d €", ($tarif === "")?"":" / ", $tarif_reduit);
+						$tarif .= sprintf ("%s Tarif réduit &nbsp; %s €", ($tarif === "")?"":" / ", $tarif_reduit);
 						$msg_reduit = get_field("message_tarif_reduit", "option");
 					}
 					if( $tarif_enfant ) {
-						$tarif .= sprintf ("%s -16 ans &nbsp; %d €", ($tarif === "")?"":" / ", $tarif_enfant);
+						$tarif .= sprintf ("%s -16 ans &nbsp; %s €", ($tarif === "")?"":" / ", $tarif_enfant);
 					}
 				}
 			break;
